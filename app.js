@@ -499,7 +499,7 @@ app.delete("/checkouts/:id", async (req, res) => {
   }
 });
 
-app.listen(2465, async function () {
+app.listen(2345, async function () {
   await connect();
-  console.log("listening on port 2465");
+  console.log("listening on port 2345");
 });
