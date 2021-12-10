@@ -28,7 +28,6 @@ const userSchema = new mongoose.Schema(
 const User = mongoose.model("users", userSchema);
 
 // section Schema
-
 const sectionSchema = new mongoose.Schema(
   {
     section: { type: String, required: true },
@@ -40,8 +39,8 @@ const sectionSchema = new mongoose.Schema(
 
 const Section = mongoose.model("section", sectionSchema);
 
-// Book Schema
 
+// Book Schema
 const bookSchema = new mongoose.Schema(
   {
     title: { type: String, required: true, unique: true },
@@ -71,8 +70,8 @@ const bookSchema = new mongoose.Schema(
 
 const Book = mongoose.model("books", bookSchema);
 
-// Author Schema
 
+// Author Schema
 const authorSchema = new mongoose.Schema(
   {
     first_name: { type: String, required: true, unique: true },
@@ -82,8 +81,8 @@ const authorSchema = new mongoose.Schema(
     versionKey: false,
   }
 );
-
 const Author = mongoose.model("authors", authorSchema);
+
 
 // CheckedOut Schema
 const checkedOutSchema = new mongoose.Schema(
@@ -108,8 +107,9 @@ const checkedOutSchema = new mongoose.Schema(
 
 const CheckedOut = mongoose.model("checkedOut", checkedOutSchema);
 
-//--------------------------USER CRUD ------------------------------
 
+
+//--------------------------USER CRUD ------------------------------
 app.post("/users", async (req, res) => {
   try {
     const user = await User.create(req.body);
@@ -380,7 +380,6 @@ app.get("/books/:sec/:aut", async (req, res) => {
 app.post("/sections", async (req, res) => {
   try {
     const section = await Section.create(req.body);
-
     return res.status(201).send(section);
   } catch (e) {
     return res.status(500).json({ message: e.message, status: "Failed" });
